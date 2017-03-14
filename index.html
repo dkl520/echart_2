@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+
+		<title></title>
+		<script src="echarts.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body {
+				color: rgb(51, 182, 227);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div style="margin: 200px ;">
+			<div id="main" style="width: 1000px; height: 600px;"></div>
+		</div>
+		<script type="text/javascript">
+			var mychart = echarts.init(document.getElementById("main"));
+
+			var option = {
+				title: {
+					right: 'middle',
+					text: '世界人口总量',
+					orient: 'vertical',
+					//					subtext: '数据来自网络'
+				},
+				grid: {
+					left: 100
+
+				},
+				tooltip: {
+					trigger: 'axis',
+					axisPointer: {
+						type: 'shadow'
+					}
+				},
+				legend: {
+					show: true,
+					bottom: 'bottom',
+					data: ['2011年', '2012年']
+				},
+
+				xAxis: {
+					type: 'category',
+					position: 'top',
+//					inverse: true,
+					axisLine: {
+						show: true,
+						lineStyle: {
+							color: "rgb(240,73,79)",
+							width: 2
+						}
+					},
+					axisLabel:{
+						show:false
+					},
+					axisTick:{
+						show:false
+						
+					},
+					nameLocation: 'middle',
+					data: ['巴西', '印尼', '美国', '印度', '中国', '世界人口(万)']
+
+				},
+				yAxis: {
+					type: 'value',
+					position:'right',
+					axisLine: {
+						show: false
+					},
+					axisLabel:{
+//						inside:true,
+						right:'center',
+						textStyle:{
+							fontWeight:'bold'
+						}
+					},
+					axisTick:{
+						show:false,
+					   interval:1,
+					   length:4
+					},
+					inverse: true,
+					splitLine: {
+						lineStyle: {
+							color: "rgb(255,255,255)",
+							width: 4
+						}
+					},
+					splitNumber: 4,
+					boundaryGap: [0, 0.01]
+				},
+
+				series: [{
+						name: '2011年',
+						type: 'bar',
+						itemStyle: {
+							normal: {
+								color: 'rgb(51,182,227)',
+								shadowBlur: 200,
+							}
+						},
+						data: [18203, 23489, 29034, 104970, 131744, 630230]
+					},
+					{
+						name: '2012年',
+						type: 'bar',
+						itemStyle: {
+							normal: {
+								color: 'rgb(51,116,138)',
+								shadowBlur: 200,
+							}
+
+						},
+						data: [19325, 23438, 31000, 121594, 134141, 681807]
+					}
+				]
+			};
+
+			mychart.setOption(option);
+			mychart.setOption({ backgroundColor: 'rgb(215,228,235)' });
+		</script>
+	</body>
+
+</html>
